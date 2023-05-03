@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<form action="/home/" method="POST">
+
+   {% csrf_token %}
+
+
+   <!-- <label for="nombre_pelicula">Nombre película</label>
+   <input name="nombre_pelicula" type="text">
+
+   <label for="calificacion">Calificación</label>
+   <input name="calificacion" type="text"> -->
+
+   {{formulario}}
+
+
+
+   <button>Registrar</button>
+</form>
+
+<div>{{error}}</div>
+
+<div>
+   {% for p in peliculas %}
+      <div class="pelicula">
+         <div>{{p.nombre_pelicula}}</div>
+         <div>{{p.calificacion}}</div>
+         <a href="{% url 'updatePelicula' p.id %}">Update</a>
+         <a href="{% url 'deletePelicula' p.id %}">Delete</a>
+      </div>
+   {% endfor %}
+</div>
+
+{% endblock content %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+
+   <h1>Actualizar</h1>
+
+   <form action="/update/{{id}}" method="POST">
+      {% csrf_token %}
+      {{formulario}}
+      <button>Actualizar</button>
+   </form>
+
+   
+{% endblock content %}
