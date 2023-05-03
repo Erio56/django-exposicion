@@ -49,3 +49,6 @@ def delete(request, id):
    pelicula.delete()
 
    return redirect('/home/')
+
+def homeRedictect(request):
+   return redirect('/home/')
